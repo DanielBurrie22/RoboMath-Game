@@ -1,0 +1,118 @@
+<!--TEAM DEVELOPERS
+Web Programming Project 
+Friday @11am-->
+
+<!-- This line declares the document type and version of HTML being used. -->
+<!DOCTYPE html>
+
+<!-- This is the opening of the HTML document. -->
+<html lang="en">
+
+<!-- This section contains metadata about the document, such as the title and links to external resources. -->
+
+<head>	
+		<meta charset="UTF-8">
+		<title> Math Game Registration </title>
+
+    <!-- This line links an external CSS file to style the page. -->
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+
+<!-- This section contains the visible content of the document. -->
+
+<body>
+
+	<!-- Video element for the background -->
+<div class="container">
+    <video playsinline autoplay muted loop class="backgroundVideo">
+        <source src="MATHVID.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+    <h1>Welcome to RoboMath Game</h1>
+
+    <!-- This is a form for player registration. -->
+    <form id="registrationForm">
+
+        <!-- Label and input field for First Name -->
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" required minlength="3"><br>
+
+        <!-- Label and input field for Last Name -->
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required minlength="3"><br>
+
+        <!-- Label and input field for Date of Birth -->
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required max="2023-12-31"><br>
+
+        <!-- Input field for Age (disabled, will be calculated automatically) -->
+        <label for="age">Age:</label>
+        <input type="number" id="age" disabled><br>
+		
+		<!-- Radio buttons for Gender selection -->
+		<label for="gender">Gender:</label>
+		<input type="radio" id="male" name="gender" value="male" required class="gender-radio"> <label for="male" class="gender-label">Male  </label>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="radio" id="female" name="gender" value="female" required class="gender-radio"> <label for="female" class="gender-label">Female</label><br>
+
+        <!-- Input field for Email (with pattern validation) -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" required pattern=".+@gmail\.com"><br>
+        <!-- Buttons for Register, Start, End, and Percentage Score -->
+        <input type="submit" value="Register" id="registerBtn" onclick="Register(); return false;">
+	</form>
+	
+		
+		<div class="button-container">
+        <input type="button" value="Start" onclick="PlayGame();" id="startBtn" disabled>
+        <input type="button" value="End" onclick="EndGame();" id="endBtn" disabled>
+        <input type="button" value="Percentage Score" onclick="showPercentageAndCharts();" id="percentageBtn" disabled>
+		</div>
+
+    <!-- This is the Play Area where multiplication questions are presented. -->
+	<div id="playAreaSection">
+    <div id="playArea">
+        <h2>Play Area</h2>
+        <div id="equation"></div>
+        <label for="answer">Your Answer:</label>
+        <input type="number" id="answer" disabled><br>
+        <input type="button" value="Check Answer" onclick="CheckAnswer();" id="checkBtn" disabled>
+        <input type="button" value="Next" onclick="PlayGame();" id="nextBtn" disabled>
+        <div id="result"></div>
+    </div>
+	</div>
+
+    <!-- This is the Results Area to display player statistics. -->
+	<div id="resultsAreaSection">
+    <div id="resultsArea">
+        <h2>Results Area</h2>
+        <div id="showallplayers"></div>
+	</div>
+	</div>
+
+
+    <!-- This area will be populated with percentage score information by JavaScript. -->
+	<div id="showpercentage">
+        <!-- This will be populated by JavaScript -->
+    </div>
+    <div id="showIncorrect"></div>
+	
+	<!-- NEWWWWW -->
+	<div id="showcharts">
+	<h2>Percentage Chart</h2>
+        <div id="genderChart"></div>
+        <div id="scoreChart"></div>
+    </div>
+	<!-- Charts will be displayed here -->
+	
+
+    <!-- This line links an external JavaScript file for dynamic behavior. -->
+    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2023 Math Game. All Rights Reserved (Team Developers).</p>
+    </footer>
+</body>
+<!-- This is the closing of the HTML document. -->
+
+</html>
